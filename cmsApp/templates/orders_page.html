@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+{% for message in messages %}
+
+{% if message.tags == "success" %}
+<div class="alert alert-dark-success alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert">×</button>{{message}}
+</div>
+{% elif message.tags == "error" %}
+<div class="alert alert-dark-danger alert-dismissible fade show">
+    <button type="button" class="close" data-dismiss="alert">×</button>{{message}}
+</div>
+{% endif %}
+
+{% endfor %}
+
+<div class="card">
+    <table class="table card-table">
+        <thead class="thead-light">
+            <tr>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Status</th>
+                <th>Date Created</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for order in orders %}
+            <tr>
+                <th>{{order.customer}}</th>
+                <td>{{order.product}}</td>
+                <th>{{order.status}}</th>
+                <td>{{order.date_created}}</td>
+                <td>
+                    <a href="{% url 'update_order_page' order.id %}" class="btn btn-success btn-sm">Update</a>
+                </td>
+                <td>
+                    <a href="{% url 'delete_order_page' order.id %}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock body %}

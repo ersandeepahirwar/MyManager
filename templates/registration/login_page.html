@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" class="material-style layout-fixed">
+
+<head>
+    <title>MyManager | Login</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="MyManager is a Customer Management System build with Django" />
+    <meta name="keywords" content="MyManager, Customer Management System">
+    <meta name="author" content="Codey Sandeep" />
+    <link rel="shortcut icon"
+        href="https://img.icons8.com/external-itim2101-flat-itim2101/64/000000/external-cloud-business-and-financial-itim2101-flat-itim2101-1.png"
+        type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/ionicons.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/open-iconic.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/pe-icon-7-stroke.css' %}">
+    <link rel="stylesheet" href="{% static 'fonts/feather.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-material.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shreerang-material.css' %}">
+    <link rel="stylesheet" href="{% static 'css/uikit.css' %}">
+    <link rel="stylesheet" href="{% static 'libs/perfect-scrollbar/perfect-scrollbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pages/authentication.css' %}">
+    <link rel="stylesheet" href="{% static 'libs/perfect-scrollbar/perfect-scrollbar.css' %}">
+    <link rel="stylesheet" href="{% static 'libs/flot/flot.css' %}">
+</head>
+
+<body>
+    <div class="page-loader">
+        <div class="bg-primary"></div>
+    </div>
+
+    <div class="authentication-wrapper authentication-1 px-4">
+        <div class="authentication-inner py-5">
+
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="ui-w-60">
+                    <div class="w-100 position-relative text-center">
+                        <img src="https://img.icons8.com/external-itim2101-flat-itim2101/64/000000/external-cloud-business-and-financial-itim2101-flat-itim2101-1.png"
+                            alt="Brand Logo" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+
+            <form class="my-5" method="post">
+
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-control" name="username">
+                    <div class="clearfix"></div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label d-flex justify-content-between align-items-end">
+                        <span>Password</span>
+                    </label>
+                    <input type="password" class="form-control" name="password">
+                    <div class="clearfix"></div>
+                </div>
+
+                {% for message in messages %}
+
+                {% if message.tags == "success" %}
+                <div class="form-group">
+                    <div class="alert alert-dark-success alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert">×</button>{{message}}
+                    </div>
+                </div>
+                {% elif message.tags == "error" %}
+                <div class="form-group">
+                    <div class="alert alert-dark-danger alert-dismissible fade show">
+                        <button type="button" class="close" data-dismiss="alert">×</button>{{message}}
+                    </div>
+                </div>
+                {% endif %}
+
+                {% endfor %}
+
+                <button type="submit" class="btn btn-primary btn-block mt-4">Login</button>
+            </form>
+
+            <div class="text-center text-muted">
+                Don't have an account yet?
+                <a href="{% url 'signup_page' %}">Sign Up</a>
+            </div>
+
+        </div>
+    </div>
+    <script src="{% static 'js/pace.js' %}"></script>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'libs/popper/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/sidenav.js' %}"></script>
+    <script src="{% static 'js/layout-helpers.js' %}"></script>
+    <script src="{% static 'js/material-ripple.js' %}"></script>
+    <script src="{% static 'libs/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
+    <script src="{% static 'js/demo.js' %}"></script>
+    <script src="{% static 'js/analytics.js' %}"></script>
+    <script src="{% static 'libs/eve/eve.js' %}"></script>
+    <script src="{% static 'libs/flot/flot.js' %}"></script>
+    <script src="{% static 'libs/flot/curvedLines.js' %}"></script>
+    <script src="{% static 'libs/chart-am4/core.js' %}"></script>
+    <script src="{% static 'libs/chart-am4/charts.js' %}"></script>
+    <script src="{% static 'libs/chart-am4/animated.js' %}"></script>
+    <script src="{% static 'js/demo.js' %}"></script>
+    <script src="{% static 'js/analytics.js' %}"></script>
+    <script src="{% static 'js/pages/dashboards_index.js' %}"></script>
+</body>
+
+</html>

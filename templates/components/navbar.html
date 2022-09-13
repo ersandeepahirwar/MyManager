@@ -1,0 +1,46 @@
+{% load static %}
+
+<nav class="layout-navbar navbar navbar-expand-lg align-items-lg-center bg-dark container-p-x" id="layout-navbar">
+    <a href="{% url 'dashboard_page' %}" class="navbar-brand app-brand demo d-lg-none py-0 mr-4">
+        <span class="app-brand-logo demo">
+            <img src="https://img.icons8.com/external-itim2101-flat-itim2101/32/000000/external-cloud-business-and-financial-itim2101-flat-itim2101-1.png"
+                alt="Brand Logo" class="img-fluid">
+        </span>
+        <span class="app-brand-text demo font-weight-normal ml-2">MyManager</span>
+    </a>
+    <div class="layout-sidenav-toggle navbar-nav d-lg-none align-items-lg-center mr-auto">
+        <a class="nav-item nav-link px-0 mr-lg-4" href="javascript:">
+            <i class="ion ion-md-menu text-large align-middle"></i>
+        </a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#layout-navbar-collapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse" id="layout-navbar-collapse">
+        <div class="navbar-nav align-items-lg-center ml-auto nav-profile">
+            <div class="demo-navbar-user nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+
+                    {% if request.user.first_name and request.user.last_name %}
+                    <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
+                        <img src="https://i.pravatar.cc/300" alt="Random Image" class="d-block ui-w-30 rounded-circle">
+                        <span class="px-1 mr-lg-2 ml-2 ml-lg-0">{{request.user.first_name}}
+                            {{request.user.last_name}}</span>
+                    </span>
+                    {% else %}
+                    <span class="d-inline-flex flex-lg-row-reverse align-items-center align-middle">
+                        <img src="https://i.pravatar.cc/300" alt="Random Image" class="d-block ui-w-30 rounded-circle">
+                        <span class="px-1 mr-lg-2 ml-2 ml-lg-0">Codey Sandeep</span>
+                    </span>
+                    {% endif %}
+
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="{% url 'logout' %}" class="dropdown-item"><i class="feather icon-power text-danger"></i>
+                        &nbsp; Log Out
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

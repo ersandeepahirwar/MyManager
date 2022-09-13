@@ -1,0 +1,160 @@
+<div id="layout-sidenav" class="layout-sidenav sidenav sidenav-vertical bg-white logo-dark">
+    <div class="app-brand demo">
+        <span class="app-brand-logo demo">
+            <img src="https://img.icons8.com/external-itim2101-flat-itim2101/32/000000/external-cloud-business-and-financial-itim2101-flat-itim2101-1.png"
+                alt="Brand Logo" class="img-fluid">
+        </span>
+        <a href="{% url 'dashboard_page' %}"
+            class="app-brand-text demo sidenav-text font-weight-normal ml-2">MyManager</a>
+        <a href="javascript:" class="layout-sidenav-toggle sidenav-link text-large ml-auto">
+            <i class="ion ion-md-menu align-middle"></i>
+        </a>
+    </div>
+
+    <div class="sidenav-divider mt-0"></div>
+
+    <ul class="sidenav-inner py-1">
+
+        {% url 'dashboard_page' as dashboard_page %}
+        <li class="sidenav-item {% if request.path == dashboard_page %} active {% endif %}">
+            <a href="{{dashboard_page}}" class="sidenav-link">
+                <i class="sidenav-icon feather icon-home"></i>
+                <div>Dashboard</div>
+                <div class="pl-1 ml-auto">
+                    <div class="badge badge-danger">Home</div>
+                </div>
+            </a>
+        </li>
+
+        <li class="sidenav-divider mb-1"></li>
+
+        {% url 'add_category_page' as add_category_page %}
+        {% url 'categories_page' as categories_page %}
+        <li class="sidenav-item {% if request.path == add_category_page %} open {% endif %}
+            {% if request.path == categories_page %} open {% endif %}">
+            <a href="javascript:" class="sidenav-link sidenav-toggle">
+                <i class="sidenav-icon feather icon-pie-chart"></i>
+                <div>Categories</div>
+            </a>
+            <ul class="sidenav-menu">
+                <li class="sidenav-item {% if request.path == add_category_page %} open active {% endif %}">
+                    <a href="{{ add_category_page }}" class="sidenav-link">
+                        <i class="sidenav-icon feather icon-pie-chart mr-2"></i>
+                        <div>Add Category</div>
+                    </a>
+                </li>
+                <li class="sidenav-item {% if request.path == categories_page %} open active {% endif %}">
+                    <a href="{{ categories_page }}" class="sidenav-link">
+                        <i class="sidenav-icon feather icon-pie-chart mr-2"></i>
+                        <div>Manage Categories</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="sidenav-divider mb-1"></li>
+
+        {% url 'add_discount_page' as add_discount_page %}
+        {% url 'discounts_page' as discounts_page %}
+        <li
+            class="sidenav-item {% if request.path == add_discount_page %} open {% endif %} {% if request.path == discounts_page %} open {% endif %}">
+            <a href="javascript:" class="sidenav-link sidenav-toggle">
+                <i class="sidenav-icon feather icon-slack"></i>
+                <div>Discounts</div>
+            </a>
+            <ul class="sidenav-menu">
+                <li class="sidenav-item {% if request.path == add_discount_page %} open active {% endif %}">
+                    <a href="{{ add_discount_page }}" class="sidenav-link">
+                        <i class="sidenav-icon feather icon-slack mr-2"></i>
+                        <div>Add Discount</div>
+                    </a>
+                </li>
+                <li class="sidenav-item {% if request.path == discounts_page %} open active {% endif %}">
+                    <a href="{{ discounts_page }}" class="sidenav-link">
+                        <i class="sidenav-icon feather icon-slack mr-2"></i>
+                        <div>Manage Discounts</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="sidenav-divider mb-1"></li>
+
+        {% url 'add_product_page' as add_product_page %}
+        {% url 'products_page' as products_page %}
+        <li
+            class="sidenav-item {% if request.path == add_product_page %} open {% endif %} {% if request.path == products_page %} open {% endif %}">
+            <a href="javascript:" class="sidenav-link sidenav-toggle">
+                <i class="sidenav-icon feather icon-briefcase"></i>
+                <div>Products</div>
+            </a>
+            <ul class="sidenav-menu">
+                <li class="sidenav-item {% if request.path == add_product_page %} open active {% endif %}">
+                    <a href="{{add_product_page}}" class="sidenav-link">
+                        <i class="sidenav-icon feather icon-briefcase mr-2"></i>
+                        <div>Add Product</div>
+                    </a>
+                </li>
+                <li class="sidenav-item {% if request.path == products_page %} open active {% endif %}">
+                    <a href="{{products_page}}" class="sidenav-link">
+                        <i class="sidenav-icon feather icon-briefcase mr-2"></i>
+                        <div>Manage Products</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="sidenav-divider mb-1"></li>
+
+        {% url 'add_customer_page' as add_customer_page %}
+        {% url 'customers_page' as customers_page %}
+        <li
+            class="sidenav-item {% if request.path == add_customer_page %} open {% endif %} {% if request.path == customers_page %} open {% endif %}">
+            <a href="javascript:" class="sidenav-link sidenav-toggle">
+                <i class="sidenav-icon feather icon-users"></i>
+                <div>Customers</div>
+            </a>
+            <ul class="sidenav-menu">
+                <li class="sidenav-item {% if request.path == add_customer_page %} open active {% endif %}">
+                    <a href="{{add_customer_page}}" class="sidenav-link">
+                        <i class="sidenav-icon feather icon-users mr-2"></i>
+                        <div>Add Customer</div>
+                    </a>
+                </li>
+                <li class="sidenav-item {% if request.path == customers_page %} open active {% endif %}">
+                    <a href="{{customers_page}}" class="sidenav-link">
+                        <i class="sidenav-icon feather icon-users mr-2"></i>
+                        <div>Manage Customers</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="sidenav-divider mb-1"></li>
+
+        {% url 'add_order_page' as add_order_page %}
+        {% url 'orders_page' as orders_page %}
+        <li
+            class="sidenav-item {% if request.path == add_order_page %} open {% endif %} {% if request.path == orders_page %} open {% endif %}">
+            <a href="javascript:" class="sidenav-link sidenav-toggle">
+                <i class="sidenav-icon feather icon-shopping-cart"></i>
+                <div>Orders</div>
+            </a>
+            <ul class="sidenav-menu">
+                <li class="sidenav-item {% if request.path == add_order_page %} open active {% endif %}">
+                    <a href="{{add_order_page}}" class="sidenav-link">
+                        <i class="sidenav-icon feather icon-shopping-cart mr-2"></i>
+                        <div>Add Order</div>
+                    </a>
+                </li>
+                <li class="sidenav-item {% if request.path == orders_page %} open active {% endif %}">
+                    <a href="{{orders_page}}" class="sidenav-link">
+                        <i class="sidenav-icon feather icon-shopping-cart mr-2"></i>
+                        <div>Manage Orders</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+</div>
